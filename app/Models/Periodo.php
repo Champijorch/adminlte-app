@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Periodo extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'fecha_inicio',
+        'fecha_fin',
+    ];
+
+    public function cursos()
+    {
+        return $this->hasMany(Curso::class, 'periodo_id');
+    }
+}
